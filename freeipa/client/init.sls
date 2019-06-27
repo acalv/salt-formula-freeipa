@@ -106,9 +106,9 @@ freeipa_client_install:
         --hostname {{ ipa_host }}
         {%- if otp is defined %}
         -w {{ otp }}
-				{%- if nontp is defined %}
-				-N
-				{%- endif %}
+        {%- if nontp is defined %}
+        -N
+        {%- endif %}
         {%- else %}
         -w {{ client.otp }}
         {%- endif %}
