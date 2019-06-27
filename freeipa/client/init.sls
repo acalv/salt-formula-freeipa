@@ -48,7 +48,7 @@ freeipa_host_add:
               "no_members": false,
               "no_reverse": false,
               "random": false,
-              "ip_address": {{ salt['grains.get']('fqdn_ip4', '')[0] }},
+              "ip_address": "{{ salt['grains.get']('fqdn_ip4', '')[0] }}",
               "raw": true,
               "userpassword": "{{ otp }}",
               "version": "2.156"
