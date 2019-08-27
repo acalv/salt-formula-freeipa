@@ -54,6 +54,11 @@ freeipa_cert_{{ principal }}:
         -k {{ key_file }}
         -N CN={{ cn }}
         -D {{ cn }}
+				{%- if cert.san is defined %}
+					{%- for altsan in cert.san %}
+						-D {{ altsan }}
+					{%- endfor %}
+				{%- endif %}
         {%- if cert.mail is defined %} -E {{ cert.mail }}{%- endif %}
         -K {{ principal }};
         i=0; while [ $i -lt 10 ]; do
