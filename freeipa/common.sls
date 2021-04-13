@@ -1,17 +1,9 @@
 {%- from "freeipa/map.jinja" import client,server with context %}
 
-# Requires saltstack/openssh-formula
-#{% from "openssh/map.jinja" import mapdata with context %}
-#{%- set openssh = mapdata.openssh %}
-
-include:
-- openssh
 
 sssd_service:
   service.running:
     - name: sssd
-    - watch_in:
-      - service: {{ openssh.service }}
     - watch:
       - file: sssd_conf
 
